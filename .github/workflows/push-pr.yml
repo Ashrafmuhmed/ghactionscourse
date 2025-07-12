@@ -1,0 +1,27 @@
+name: Push-workflow-actions
+
+on:
+  # Webhook events
+  # Trigger the workflow on push and pull request events
+  push:
+    branches:
+      - main 
+      - "release/**" # asterisk to match any release branch (e.g., release/v1.0 , release/v2.0 , etc.)
+    paths:
+      - "src/**" # only trigger if files in src/ directory are changed, as if u wantedto change like a README.md file, it won't trigger the workflow
+  pull_request: # Trigger the workflow on pull request events
+    branches:
+      - main 
+      - "release/**"
+    paths:
+      - "src/**"
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@4.2.2
+    
+      - name: Run tests
+        run: npm test
