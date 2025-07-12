@@ -1,4 +1,4 @@
-  name: My first workflow
+name: My first workflow
 
 on:
   push:
@@ -17,5 +17,3 @@ jobs:
 
       - name: Listing dirs
         run: ls -la
-        
-        
