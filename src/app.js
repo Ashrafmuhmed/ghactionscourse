@@ -2,7 +2,7 @@ function greet(name){
     return `Hello , ${name}` ;     
 }
 
-exports = greet ;
+module.exports.greet = greet;
 
 if( require.main === module ){
     console.log( greet("world") ) ; 
